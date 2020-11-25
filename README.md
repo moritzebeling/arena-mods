@@ -1,7 +1,6 @@
 # Arena Mods
 
 Use this boilerplate to create new layouts for Are.na channels.
-Uses [Svelte](https://svelte.dev) as Javascript frontend framework.
 
 [Preview](https://moritzebeling.github.io/arena-mods/)
 
@@ -23,8 +22,13 @@ npm run dev
 
 Go to `src/Index.svelte` and start working from there.
 
+This boilerplate uses [Svelte](https://svelte.dev) as Javascript frontend framework.
+
 ## Arena API
 https://dev.are.na/documentation/channels
 
-Get all info about a given channel: `https://api.are.na/v2/channels/{channel-id}`
-Get the content of a given channel: `https://api.are.na/v2/channels/{channel-id}/contents`
+Get all info about a given channel:
+- `https://api.are.na/v2/channels/{channel-id}`
+
+Get the content of a given channel:
+- `https://api.are.na/v2/channels/{channel-id}/contents`
