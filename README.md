@@ -3,6 +3,8 @@
 Use this boilerplate to create new layouts for Are.na channels.
 Uses [Svelte](https://svelte.dev) as Javascript frontend framework.
 
+[Preview](https://moritzebeling.github.io/arena-mods/)
+
 ## Install
 
 You will need to have Git and [Node.js](https://nodejs.org) installed.
