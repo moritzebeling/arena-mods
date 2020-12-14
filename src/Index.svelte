@@ -5,10 +5,12 @@
 
 	import Grid from './layouts/grid/index.svelte';
 	import List from './layouts/list/index.svelte';
+	import Random from './layouts/random/index.svelte';
 
 	const layouts = [
 		{ title: "Grid", component: Grid },
 		{ title: "List", component: List },
+		{ title: "Random", component: Random },
 	];
 	let layout = layouts[0];
 
