@@ -2,6 +2,10 @@
 
     export let post = {};
 
+    function random( min, max ){
+        return Math.floor(Math.random() * (max-min)) + min;
+    }
+
     function top(){
         return Math.random() * window.innerHeight;
     }
@@ -12,7 +16,7 @@
 </script>
 
 {#if post.image}    
-    <article style="top: {top()}px; left: {left()}px;">
+    <article style="top: {random(-10,90)}vh; left: {random(-10,90)}vw; width: {random(10,30)}vw;">
 
         <img src={post.image.display.url} alt="" />
 
