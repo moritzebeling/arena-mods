@@ -1,24 +1,72 @@
 <script>
 
+	import {onMount} from 'svelte';
 	import {getChannel} from './utilities/getChannel.js';
-	import Channel from './components/Channel.svelte';
+
+	import Grid from './layouts/grid/index.svelte';
+	import List from './layouts/list/index.svelte';
+
+	const layouts = [
+		{ title: "Grid", component: Grid },
+		{ title: "List", component: List },
+	];
+	let layout = layouts[0];
+
+	$: {
+		console.log( layout )
+	}
 
 	const channelId = 'photo_class_websites';
+	let load;
 
-	let load = getChannel(channelId);
+	onMount(()=>{
+		load = getChannel(channelId);
+	});
 
 </script>
 
-<main>
+{#if load}
+
+	<header>
+		{#if load}
+			{#await load}
+				<h1>Please wait ...</h1>
+			{:then channel}
+				<h1>{channel.title}</h1>
+			{:catch error}
+				<h1 class="error">{error.message}</h1>
+			{/await}
+		{/if}
+		<select bind:value={layout}>
+			{#each layouts as l}
+				<option value={l}>{l.title}</option>
+			{/each}
+		</select>
+	</header>
 
 	{#await load}
-		<p>Please wait...</p>
+		<!-- loading -->
 	{:then channel}
 
-		<Channel {channel} />
+		<svelte:component this={layout.component} {channel}/>
 
 	{:catch error}
-		<p style="color: red">Oh no! {error.message}</p>
+		<!-- error -->
 	{/await}
 
-</main>
+{/if}
+
+<style>
+
+	header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		padding: 1rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+</style>
