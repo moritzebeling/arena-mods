@@ -62,6 +62,7 @@
 
 	header {
 		position: fixed;
+		z-index: 10;
 		top: 0;
 		left: 0;
 		width: 100%;
@@ -69,6 +70,6 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-	}
+	} 
 
 </style>
